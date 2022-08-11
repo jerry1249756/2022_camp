@@ -164,10 +164,7 @@ const Transfer = () => {
               10%
             </Button>
           </Box>
-          <Button
-            disabled={!(from && to && amount) || from !== to}
-            onClick={handleClick}
-          >
+          <Button disabled={from === to} onClick={handleClick}>
             Submit
           </Button>
         </FormControl>
