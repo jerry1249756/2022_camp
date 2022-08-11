@@ -6,7 +6,8 @@ import express from "express";
 import session from "express-session";
 import dotenv from "dotenv-defaults";
 import fs from "fs";
-import path from "path";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 import redis from "ioredis";
 import connectRedis from "connect-redis";
 import { v4 as uuid_v4 } from "uuid";
@@ -124,6 +125,15 @@ db.once("open", () => {
   // app.get("/*", (req, res) => {
   //   res.sendFile(path.join(process.cwd(), "build", "index.html"));
   // });
+
+  //locally test
+  const __dirname = dirname(fileURLToPath(import.meta.url));
+  app.use(express.static(path.join(__dirname, "/../../frontend", "build")));
+  app.get("/*", function (req, res) {
+    res.sendFile(
+      path.join(__dirname, "/../../frontend", "build", "index.html")
+    );
+  });
 
   socket(io);
 
