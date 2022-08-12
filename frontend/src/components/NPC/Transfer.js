@@ -36,14 +36,14 @@ const Transfer = () => {
 
   const handlePercentMoney = (percent) => {
     const item = teams.find((element) => element.teamname === from);
-    const money = item.money; //find the team's money
-    setAmount(money * percent);
+    const money = Math.floor(item.money * percent); //find the team's money
+    setAmount(money);
   };
 
   const handleEqualMoney = () => {
     let money_from = teams.find((element) => element.teamname === from).money; //first team (using the card)
     let money_to = teams.find((element) => element.teamname === to).money; //second team(passive)
-    let temp = (money_from - money_to) / 2;
+    let temp = Math.floor((money_from - money_to) / 2);
     setAmount(temp);
   };
 
@@ -206,7 +206,7 @@ const Transfer = () => {
             </Button>
           </Box>
           <Button
-            disabled={!(from && to && amount) || from !== to}
+            disabled={!(from && to && amount) || from === to}
             onClick={handleClick}
           >
             Submit

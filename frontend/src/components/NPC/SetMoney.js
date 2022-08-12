@@ -25,7 +25,7 @@ const SetMoney = () => {
       await axios.get("/team");
     }
     const item = teams.find((element) => element.teamname === team); //find the team's money
-    const money = item.money;
+    const money = Math.floor(item.money);
     setAmount(money * 0.1);
   };
 

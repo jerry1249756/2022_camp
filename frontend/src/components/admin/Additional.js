@@ -47,7 +47,7 @@ const Additional = () => {
         id: id,
         duration: effect.duration,
         title: title,
-        content: message,
+        description: message,
       });
       setMessages(temp);
       setId(id + 1);
@@ -56,7 +56,7 @@ const Additional = () => {
       let temp = permMessages.slice();
       temp.push({
         title: title,
-        content: message,
+        description: message,
       });
       setPermMessages(temp);
     }

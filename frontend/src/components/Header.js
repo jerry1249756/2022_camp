@@ -26,7 +26,7 @@ const Header = () => {
     navigate("/"); //set to home later
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     let task = setInterval(() => {
       if (messages.length > 0) {
         const temp = messages.slice();
@@ -42,7 +42,7 @@ const Header = () => {
       clearInterval(task);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [messages]);
+  }, [messages]);*/
 
   return (
     <Grid container>

@@ -408,6 +408,15 @@ const notifications = [
     id: 0,
     title: "歡迎遊玩大富翁",
     description: "衝啊",
+    type: "permenant",
+  },
+  {
+    id: 1,
+    title: "Test temporary",
+    description: "temporary",
+    type: "temporary",
+    duration: 800,
+    createdAt: Date.now(),
   },
 ];
 

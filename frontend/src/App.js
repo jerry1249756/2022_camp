@@ -24,7 +24,7 @@ const App = () => {
   const [messages, setMessages] = useState([]);
   const [eventMessage, setEventMessage] = useState({
     title: "none",
-    content: "目前沒有事件正在發生...",
+    description: "目前沒有事件正在發生...",
   });
   const [teams, setTeams] = useState([]);
   const [permMessages, setPermMessages] = useState([]);

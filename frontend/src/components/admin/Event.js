@@ -11,8 +11,8 @@ import {
   Button,
   FormControl,
 } from "@mui/material";
-import RoleContext from "../useRole";
 import axios from "../axios";
+import RoleContext from "../useRole";
 
 const Event = () => {
   const [message, setMessage] = useState(
@@ -20,9 +20,19 @@ const Event = () => {
   );
   const [event, setEvent] = useState(0);
   const [events, setEvents] = useState([]);
-  const { setEventMessage, role } = useContext(RoleContext);
+  const { setEventMessage, role, id, setId } = useContext(RoleContext);
+
   const navigate = useNavigate();
-  const handleClick = () => {
+  const handleClick = async () => {
+    //set event to backend
+    const payload = {
+      id: id,
+      type: "event",
+      title: events[event].title,
+      description: message,
+    };
+    await axios.post("", payload);
+    //to be commented
     setEventMessage({
       title: events[event].title,
       content: message,
@@ -34,6 +44,7 @@ const Event = () => {
     if (role !== "admin") {
       navigate("/permission");
     }
+    //fetch data from backend and setData
     axios
       .get("/allEvents")
       .then((res) => {
@@ -42,6 +53,7 @@ const Event = () => {
       .catch((err) => {
         console.log(err);
       });
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
